@@ -58,6 +58,6 @@ RUN mkdir -p /root/.ssh && \
 # Start script
 COPY generate-composer-extension.py /generate-composer-extension.py
 COPY entrypoint.sh /var/www/html/entrypoint.sh
-RUN chmod +x /*.sh
+RUN chmod +x /var/www/html/*.sh
 ENTRYPOINT ["/var/www/html/entrypoint.sh"]
 CMD ["/usr/bin/tail", "-f", "/var/log/httpd/error_log"]
