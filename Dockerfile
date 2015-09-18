@@ -47,7 +47,7 @@ RUN sed -i 's#memory_limit = 128M#memory_limit = 512M#g' /etc/php.ini && \
     sed -i 's#;date.timezone =#date.timezone = "Europe/Paris"\n#g' /etc/php.ini
 
 # Expose port
-EXPOSE 80 9200 9300 27017
+EXPOSE 80
 ENV URL **None**
 ENV VERSION **None**
 ENV GITHUB_APIKEY **None**
