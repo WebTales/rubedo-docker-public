@@ -35,8 +35,6 @@ RUN cp /etc/httpd/conf/httpd.conf /etc/httpd/conf/httpd.conf.old && \
     sed -i 's#AllowOverride None#AllowOverride All#g' /etc/httpd/conf/httpd.conf && \
     sed -i 's#ServerName www.example.com:80#ServerName www.example.com:80\nServerName localhost:80#g' /etc/httpd/conf/httpd.conf
 
-# Prepare Rubedo Install
-RUN mkdir -p /var/www/html/rubedo
 # Install PHP Mongo extension
 RUN pecl channel-update pecl.php.net
 RUN pecl install mongo
@@ -59,7 +57,7 @@ RUN mkdir -p /root/.ssh && \
 
 # Start script
 COPY generate-composer-extension.py /generate-composer-extension.py
-COPY entrypoint.sh /var/www/html/rubedo/entrypoint.sh
+COPY entrypoint.sh /var/www/html/entrypoint.sh
 RUN chmod +x /*.sh
-ENTRYPOINT ["/var/www/html/rubedo/entrypoint.sh"]
+ENTRYPOINT ["/var/www/html/entrypoint.sh"]
 CMD ["/usr/bin/tail", "-f", "/var/log/httpd/error_log"]
