@@ -60,4 +60,5 @@ COPY generate-composer-extension.py /generate-composer-extension.py
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /*.sh
 ENTRYPOINT ["/entrypoint.sh"]
+VOLUME /var/www/html/rubedo
 CMD ["/usr/bin/tail", "-f", "/var/log/httpd/error_log"]
