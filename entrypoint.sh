@@ -17,7 +17,8 @@ if [ "${DEPLOYED}" = "false" ]; then
         fi
         if [ "${EXTENSIONS_REPOSITORIES}" = "**None**" ]; then
             unset EXTENSIONS_REPOSITORIES
-        fi        
+        fi   
+        git init
         if [ "${VERSION}" != "**None**" ]; then
             git clone -b "$VERSION" https://github.com/WebTales/rubedo.git /var/www/html/rubedo
         else
