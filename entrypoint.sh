@@ -11,6 +11,13 @@ if [ "${DEPLOYED}" = "false" ]; then
             git pull
         fi
     else
+        mkdir -p /var/www/html/rubedo
+        if [ "${EXTENSIONS_REQUIRES}" = "**None**" ]; then
+            unset EXTENSIONS_REQUIRES
+        fi
+        if [ "${EXTENSIONS_REPOSITORIES}" = "**None**" ]; then
+            unset EXTENSIONS_REPOSITORIES
+        fi        
         if [ "${VERSION}" != "**None**" ]; then
             git clone -b "$VERSION" https://github.com/WebTales/rubedo.git /var/www/html/rubedo
         else
